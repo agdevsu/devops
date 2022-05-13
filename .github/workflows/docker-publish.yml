@@ -1,4 +1,4 @@
-name: Docker
+name: Build and Push Docker
 
 on:
   push:
@@ -15,6 +15,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    environment: PRODUCTION
     permissions:
       contents: read
       packages: write
@@ -23,6 +24,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
       - name: Install cosign
         if: github.event_name != 'pull_request'
         uses: sigstore/cosign-installer@d6a3abf1bdea83574e28d40543793018b6035605
