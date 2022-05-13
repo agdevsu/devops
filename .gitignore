@@ -1,2 +1,15 @@
 .pytest_cache
 __pycache__
+
+**/.terraform/*
+
+*.tfstate
+*.tfstate.*
+
+*.tfvars
+
+*.tfplan
+
+*.pem
+
+*.hcl

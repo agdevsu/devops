@@ -1,0 +1,26 @@
+##################
+# Global Variables
+##################
+
+aws_region  = "us-east-1"
+environment = "production"
+
+########################
+# VPC & Subnet Variables
+########################
+
+vpc_cidr_block    = "10.1.0.0/16"
+subnets_count     = 2
+subnets_cidr_bits = 8
+
+#########################
+# EC2 Instances Variables
+#########################
+
+ec2_ssh_key_name = "name_of_existing_key_pair"
+
+###############
+# ALB Variables
+###############
+
+certificate_arn = "arn_of_existing_certificate"
