@@ -51,20 +51,20 @@ jobs:
         run: |
           cd app && docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} . && docker push ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
-  deploy:
+  # deploy:
 
-    runs-on: ubuntu-latest
-    environment: PRODUCTION
+  #   runs-on: ubuntu-latest
+  #   environment: PRODUCTION
     
-    steps:
-      - name: Deploy Docker Container
-        uses: fifsky/ssh-action@master
-        with:
-          command: |
-            echo "Log into Docker Registry ..."
-            # echo ${{ secrets.DOCKER_TOKEN }} | docker login --username agdevsu --password-stdin
-            echo "Deploying Docker container ..."
-            # docker run -p 5000:5000 -d ${{ env.IMAGE_NAME }}:${{ github.sha }}
-          # host: ${{ secrets.HOST }}
-          # user: ubuntu
-          # key: ${{ secrets.PRIVATE_KEY}}
+  #   steps:
+  #     - name: Deploy Docker Container
+  #       uses: fifsky/ssh-action@master
+  #       with:
+  #         command: |
+  #           echo "Log into Docker Registry ..."
+  #           echo ${{ secrets.DOCKER_TOKEN }} | docker login --username agdevsu --password-stdin
+  #           echo "Deploying Docker container ..."
+  #           docker run -p 5000:5000 -d ${{ env.IMAGE_NAME }}:${{ github.sha }}
+  #         host: ${{ secrets.HOST }}
+  #         user: ubuntu
+  #         key: ${{ secrets.PRIVATE_KEY}}
