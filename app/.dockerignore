@@ -1,0 +1,4 @@
+.dockerignore
+Dockerfile
+tests
+__pycache__
