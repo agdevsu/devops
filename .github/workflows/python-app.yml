@@ -1,0 +1,27 @@
+name: Python application
+
+on:
+  push:
+    branches:
+      - '**'
+      
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: python:3.8-slim-buster
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.8"
+    - name: Install dependencies
+      run: |
+        pip3 install -U pytest && pip3 install Flask
+    - name: Test with pytest
+      run: |
+        cd app && python3 -m pytest --tb=long -v
